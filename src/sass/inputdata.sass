@@ -1,0 +1,46 @@
+@mixin flexbox($space : space-between, $gap : 1rem, $dir : row)
+    display: flex
+    justify-content: $space
+    gap: $gap
+    flex-direction: $dir
+
+
+.wrapper
+    max-width: 1000px
+    margin-inline: auto
+    padding: 40px
+    @include flexbox(flex-start, 1rem, column)
+    & &-date
+        width: 400px
+        @include flexbox(flex-start, 1rem, column)
+        @media screen and (max-width: 500px)
+            input
+                max-width: 300px
+        label
+            font-size: 26px
+            color: darken(#68A7AD,20 )
+        input
+            padding: 10px 20px
+            border-radius: 5px
+    & &-sex
+        @include flexbox(flex-start, 1rem, column)
+        label
+            font-size: 26px
+            color: darken(#68A7AD,20 )
+        &-option
+            @include flexbox(flex-start, 1rem,row)
+            max-width: 1000px
+    button
+        padding: 5px 10px
+        font-size: 20px
+        border: 2px solid  darken(#68A7AD,20 )
+        border-radius: 5px
+        color: #333
+        width: fit-content
+        transition: all .2s ease-in-out
+        &:hover
+            background-color: darken(#68A7AD,20 )
+            color: lighten(#68A7AD, 40 )
+
+
+
